@@ -24,76 +24,80 @@ A modular, scalable React + TypeScript + Tailwind CSS project for learning and e
 ## 🧩 Folder Structure
 
 react-learning/
-├── public/                      # Static public assets (index.html, favicon, etc.)
-├── src/                         # Main application source code
+├── public/                            # Static public assets (index.html, favicon, etc.)
+├── src/                               # Main application source code
 │
-│   ├── assets/                  # Global static assets (images, fonts, etc.)
+│   ├── assets/                        # Global static assets (images, fonts, etc.)
 │   │   ├── images/
 │   │   ├── icons/
 │   │   └── fonts/
 │
-│   ├── modules/                 # Feature-based modular folders
+│   ├── modules/                       # Feature-based modular folders
 │   │
-│   │   ├── core/                # Shared logic across the app
-│   │   │   ├── components/      # Shared UI (e.g. Modal, Navbar, Loader)
-│   │   │   ├── design-system/   # UI primitives (e.g. Button, Input, Card)
+│   │   ├── core/                      # Shared logic across the app
+│   │   │   ├── components/            # Shared UI (e.g. Modal, Navbar, Loader)
+│   │   │   ├── design-system/         # UI primitives (e.g. Button, Input, Card)
 │   │   │   │   └── Button.tsx
-│   │   │   ├── hooks/           # Global reusable hooks (e.g. useToggle, useDebounce)
-│   │   │   ├── lib/             # Tech-specific helpers (e.g. localStorage, dom)
-│   │   │   └── utils/           # Pure functions (formatDate, slugify, etc.)
+│   │   │   ├── hooks/                 # Global reusable hooks (e.g. useToggle, useDebounce)
+│   │   │   ├── lib/                   # Tech-specific helpers (e.g. localStorage, dom)
+│   │   │   └── utils/                 # Pure functions (formatDate, slugify, etc.)
 │   │
-│   │   ├── auth/                # Feature: Authentication
-│   │   │   ├── components/      # LoginForm, SignUpForm, etc.
+│   │   ├── auth/                      # Feature: Authentication
+│   │   │   ├── components/            # LoginForm, SignUpForm, etc.
 │   │   │   │   └── SignUpForm.tsx
-│   │   │   ├── hooks/           # useAuth, useLoginStatus
+│   │   │   ├── hooks/                 # useAuth, useLoginStatus
 │   │   │   │   └── useAuth.ts
-│   │   │   ├── lib/             # Token helpers
-│   │   │   ├── services/        # API calls (login, register, logout)
-│   │   │   ├── states/          # Zustand/Redux for auth state
-│   │   │   └── utils/           # Validators (e.g. isEmail)
+│   │   │   ├── lib/                   # Token helpers
+│   │   │   ├── services/              # API calls (login, register, logout)
+│   │   │   ├── states/                # Zustand/Redux for auth state
+│   │   │   ├── utils/                 # Validators (e.g. isEmail)
+│   │   │   └── routes.tsx            # ✅ Module-specific route definitions
 │   │
-│   │   ├── payment/             # Feature: Payment processing
-│   │   │   ├── components/      # PaymentForm, BillingUI
+│   │   ├── payment/                   # Feature: Payment processing
+│   │   │   ├── components/            # PaymentForm, BillingUI
 │   │   │   │   └── PaymentForm.tsx
-│   │   │   ├── hooks/           # usePayment, usePaymentStatus
+│   │   │   ├── hooks/                 # usePayment, usePaymentStatus
 │   │   │   │   └── usePayment.ts
-│   │   │   ├── lib/             # IndexedDB, Stripe SDK wrapper
-│   │   │   ├── services/        # API calls (processPayment, getHistory)
-│   │   │   ├── states/          # Zustand/Redux store
-│   │   │   └── utils/           # Tax calculations, currency formatting
+│   │   │   ├── lib/                   # IndexedDB, Stripe SDK wrapper
+│   │   │   ├── services/              # API calls (processPayment, getHistory)
+│   │   │   ├── states/                # Zustand/Redux store
+│   │   │   ├── utils/                 # Tax calculations, currency formatting
+│   │   │   └── routes.tsx            # ✅ Module-specific route definitions
 │   │
-│   │   └── employees/           # Feature: Employee management
-│   │       ├── components/      # EmployeeList, EmployeeSummary
+│   │   └── employees/                 # Feature: Employee management
+│   │       ├── components/            # EmployeeList, EmployeeSummary
 │   │       │   ├── EmployeeList.tsx
 │   │       │   └── EmployeeSummary.tsx
-│   │       ├── hooks/           # useEmployees, useUpdateEmployee
+│   │       ├── hooks/                 # useEmployees, useUpdateEmployee
 │   │       │   ├── useEmployees.ts
 │   │       │   └── useUpdateEmployee.ts
-│   │       ├── services/        # API calls (fetch/update employee)
-│   │       ├── states/          # Zustand/Redux for employee data
-│   │       └── utils/           # Filtering, formatting helpers
+│   │       ├── services/              # API calls (fetch/update employee)
+│   │       ├── states/                # Zustand/Redux for employee data
+│   │       ├── utils/                 # Filtering, formatting helpers
+│   │       └── routes.tsx            # ✅ Module-specific route definitions
 │
-│   ├── layout/                  # App layout components (header, sidebar, footer)
+│   ├── layout/                        # App layout components (header, sidebar, footer)
 │   │   ├── MainLayout.tsx
 │   │   └── AuthLayout.tsx
 │
-│   ├── pages/                   # Static or global pages (optional)
+│   ├── pages/                         # Static or global pages (optional)
 │   │   ├── NotFound.tsx
 │   │   └── About.tsx
 │
-│   ├── routes/                  # Central route registration
-│   │   ├── AppRoutes.tsx        # useRoutes() with combined module routes
-│   │   └── ProtectedRoute.tsx   # Wrapper for auth-protected routes
+│   ├── routes/                        # Central route configuration
+│   │   ├── AppRoutes.tsx              # ✅ useRoutes() with combined module routes
+│   │   └── ProtectedRoute.tsx         # ✅ Wrapper for auth-protected/private routes
 │
-│   ├── App.tsx                  # Root app component
-│   ├── main.tsx                 # Entry point (ReactDOM.createRoot)
-│   └── index.css                # Tailwind base + custom styles
+│   ├── App.tsx                        # Root app component
+│   ├── main.tsx                       # Entry point (ReactDOM.createRoot)
+│   └── index.css                      # Tailwind base + custom styles
 │
-├── .env                         # Environment variables
-├── tailwind.config.js           # Tailwind configuration
-├── tsconfig.json                # TypeScript configuration
-├── package.json                 # NPM dependencies and scripts
-└── README.md                    # Project documentation
+├── .env                               # Environment variables
+├── tailwind.config.js                 # Tailwind CSS configuration
+├── tsconfig.json                      # TypeScript configuration
+├── package.json                       # NPM dependencies and scripts
+└── README.md                          # Project documentation
+
 
 
 ---
